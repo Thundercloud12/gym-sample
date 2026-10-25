@@ -60,41 +60,37 @@ export default function FacilitiesSection({ onOpenEnquiry }: FacilitiesProps) {
           <div className="flex flex-wrap items-center gap-2">
             <button
               onClick={() => setFilter("all")}
-              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === "all"
+              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${filter === "all"
                   ? "bg-[#283f7d] text-[#fffbf3] font-bold shadow-sm"
                   : "bg-[#fffbf3] text-[#5b5b5b] hover:text-[#212121] border border-[#d2cbc0]"
-              }`}
+                }`}
             >
               All ({AMENITIES.length})
             </button>
             <button
               onClick={() => setFilter("training")}
-              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === "training"
+              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${filter === "training"
                   ? "bg-[#283f7d] text-[#fffbf3] font-bold shadow-sm"
                   : "bg-[#fffbf3] text-[#5b5b5b] hover:text-[#212121] border border-[#d2cbc0]"
-              }`}
+                }`}
             >
               Training
             </button>
             <button
               onClick={() => setFilter("amenity")}
-              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === "amenity"
+              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${filter === "amenity"
                   ? "bg-[#283f7d] text-[#fffbf3] font-bold shadow-sm"
                   : "bg-[#fffbf3] text-[#5b5b5b] hover:text-[#212121] border border-[#d2cbc0]"
-              }`}
+                }`}
             >
               Locker &amp; Comfort
             </button>
             <button
               onClick={() => setFilter("recovery")}
-              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${
-                filter === "recovery"
+              className={`px-3.5 py-1.5 rounded-full font-mono-code text-xs uppercase tracking-wider transition-all cursor-pointer ${filter === "recovery"
                   ? "bg-[#283f7d] text-[#fffbf3] font-bold shadow-sm"
                   : "bg-[#fffbf3] text-[#5b5b5b] hover:text-[#212121] border border-[#d2cbc0]"
-              }`}
+                }`}
             >
               Recovery
             </button>

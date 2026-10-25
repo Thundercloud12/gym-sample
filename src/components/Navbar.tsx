@@ -64,10 +64,20 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="font-display text-lg sm:text-xl font-black uppercase tracking-tight text-[#212121] leading-tight group-hover:text-[#283f7d] transition-colors">
+                <span
+                  className={`font-display text-lg sm:text-xl font-black uppercase tracking-tight leading-tight transition-colors ${
+                    scrolled
+                      ? "text-[#212121] group-hover:text-[#283f7d]"
+                      : "text-white group-hover:text-[#ec633d] drop-shadow"
+                  }`}
+                >
                   Urban Fitness Culture
                 </span>
-                <span className="font-mono-code text-[10px] tracking-wider text-[#8b8b8b] uppercase">
+                <span
+                  className={`font-mono-code text-[10px] tracking-wider uppercase transition-colors ${
+                    scrolled ? "text-[#8b8b8b]" : "text-white/75 drop-shadow-sm"
+                  }`}
+                >
                   Pleasant District · Mira Road East
                 </span>
               </div>
@@ -91,28 +101,40 @@ export default function Navbar({ onOpenEnquiry }: NavbarProps) {
             </div>
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold text-[#5b5b5b]">
+            <nav
+              className={`hidden md:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold transition-colors ${
+                scrolled ? "text-[#5b5b5b]" : "text-white/90 drop-shadow"
+              }`}
+            >
               <a
                 href="#services"
-                className="hover:text-[#283f7d] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#283f7d] after:transition-all"
+                className={`transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#ec633d] after:transition-all ${
+                  scrolled ? "hover:text-[#283f7d]" : "hover:text-white"
+                }`}
               >
                 Services
               </a>
               <a
                 href="#facilities"
-                className="hover:text-[#283f7d] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#283f7d] after:transition-all"
+                className={`transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#ec633d] after:transition-all ${
+                  scrolled ? "hover:text-[#283f7d]" : "hover:text-white"
+                }`}
               >
                 Facilities
               </a>
               <a
                 href="#location"
-                className="hover:text-[#283f7d] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#283f7d] after:transition-all"
+                className={`transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#ec633d] after:transition-all ${
+                  scrolled ? "hover:text-[#283f7d]" : "hover:text-white"
+                }`}
               >
                 Hours & Location
               </a>
               <a
                 href="#reviews"
-                className="hover:text-[#283f7d] transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#283f7d] after:transition-all"
+                className={`transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-[2px] after:bg-[#ec633d] after:transition-all ${
+                  scrolled ? "hover:text-[#283f7d]" : "hover:text-white"
+                }`}
               >
                 Reviews
               </a>

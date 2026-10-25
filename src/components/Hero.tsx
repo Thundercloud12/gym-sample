@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import { GYM_DETAILS } from "@/data/gymData";
 import { ArrowUpRight, MapPin, Star, Phone } from "lucide-react";
 import { gsap } from "gsap";
@@ -57,23 +56,26 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[92vh] sm:min-h-screen flex items-end justify-start pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-drafting-grid"
+      className="relative min-h-[92vh] sm:min-h-screen flex items-end justify-start pt-36 sm:pt-40 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden bg-black"
     >
-      {/* Background Hero Image with Subtle Parallax & Blueprint Overlay */}
-      <div ref={bgImgRef} className="absolute inset-0 z-0 will-change-transform">
-        <Image
-          src="/images/hero.jpg"
-          alt="Urban Fitness Culture gym floor"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center filter contrast-[1.1] mix-blend-multiply opacity-25 scale-105"
-        />
-        {/* Paper & Drafting Gradients */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#eadfc9] via-[#eadfc9]/75 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#eadfc9] via-[#eadfc9]/60 to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(40,63,125,0.06),transparent_55%)]"></div>
+      {/* Background Hero Video with Subtle Parallax */}
+      <div
+        ref={bgImgRef}
+        className="absolute inset-0 z-0 will-change-transform"
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-105 opacity-100"
+        >
+          <source src="/gym_video.mp4" type="video/mp4" />
+        </video>
       </div>
+
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         {/* Architectural Drafting Coordinates & Badges */}
@@ -93,23 +95,23 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
             <span>Pleasant District · Metro Link</span>
           </div>
 
-          <div className="hidden lg:inline-flex items-center px-3 py-1.5 rounded font-mono-code text-[11px] text-[#8b8b8b] uppercase tracking-widest">
+          <div className="hidden lg:inline-flex items-center px-3 py-1.5 rounded font-mono-code text-[11px] text-white/80 uppercase tracking-widest drop-shadow">
             X 19.28° N · Y 72.86° E
           </div>
         </div>
 
-        {/* Big Architectural Poster Headline (De-Textified) */}
+        {/* Big Architectural Poster Headline */}
         <div className="max-w-5xl">
           <h1
             ref={headlineRef}
-            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black uppercase tracking-tight text-[#212121] leading-[0.88] mb-6 sm:mb-8"
+            className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-black uppercase tracking-tight leading-[0.88] mb-6 sm:mb-8"
           >
-            <span className="hero-line block text-[#212121]">COMMUNITY FIRST.</span>
-            <span className="hero-line block text-[#283f7d]">REAL GROWTH.</span>
-            <span className="hero-line block text-[#373737]">ZERO GIMMICKS.</span>
+            <span className="hero-line block text-white drop-shadow-md">COMMUNITY FIRST.</span>
+            <span className="hero-line block text-[#ec633d] drop-shadow-md">REAL GROWTH.</span>
+            <span className="hero-line block text-white/90 drop-shadow-md">ZERO GIMMICKS.</span>
           </h1>
 
-          <p className="max-w-xl text-base sm:text-lg text-[#5b5b5b] font-normal leading-relaxed mb-8 sm:mb-10">
+          <p className="max-w-xl text-base sm:text-lg text-white/90 font-normal leading-relaxed mb-8 sm:mb-10 drop-shadow">
             Built for progressive overload, verified recovery, and uncompromising daily consistency.
           </p>
 
@@ -117,7 +119,7 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
           <div className="flex flex-wrap items-center gap-3.5 sm:gap-4 mb-12">
             <button
               onClick={() => onOpenEnquiry()}
-              className="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#283f7d] text-[#fffbf3] font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-[#1f3568] transition-all duration-300 shadow-xl shadow-[#283f7d]/20 group cursor-pointer"
+              className="inline-flex items-center gap-3 pl-6 pr-2 py-2 rounded-full bg-[#283f7d] text-[#fffbf3] font-bold text-sm sm:text-base uppercase tracking-wider hover:bg-[#1f3568] transition-all duration-300 shadow-xl shadow-black/40 group cursor-pointer"
             >
               <span>Enquire About Membership</span>
               <div className="w-9 h-9 rounded-full bg-[#ec633d] text-white flex items-center justify-center transition-all duration-300 group-hover:bg-[#fffbf3] group-hover:text-[#283f7d] group-hover:rotate-45">
@@ -127,7 +129,7 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
 
             <a
               href={GYM_DETAILS.phoneHref}
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#fffbf3] hover:bg-[#e5d6bc] border border-[#a19d94]/40 text-[#212121] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-sm"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-[#fffbf3] hover:bg-white border border-white/60 text-[#212121] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 shadow-md"
             >
               <Phone className="w-4 h-4 text-[#283f7d]" />
               <span>Call {GYM_DETAILS.phone}</span>
@@ -137,15 +139,15 @@ export default function Hero({ onOpenEnquiry }: HeroProps) {
               href={GYM_DETAILS.mapsHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-transparent hover:bg-[#fffbf3]/60 border border-[#a19d94]/50 text-[#373737] hover:text-[#212121] font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300"
+              className="inline-flex items-center gap-2 px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold text-xs sm:text-sm uppercase tracking-wider transition-all duration-300 backdrop-blur-sm"
             >
               <MapPin className="w-4 h-4 text-[#ec633d]" />
               <span>Directions</span>
             </a>
           </div>
 
-          {/* Proof Strip in Paper Ivory */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 border-t border-[#a19d94]/40">
+          {/* Proof Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 pt-8 border-t border-white/20">
             <div className="p-3 sm:p-4 rounded-xl bg-[#fffbf3] border border-[#d2cbc0] shadow-sm">
               <span className="block font-mono-code text-[11px] uppercase tracking-wider text-[#8b8b8b] mb-1">
                 Rating

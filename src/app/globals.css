@@ -1,26 +1,173 @@
 @import "tailwindcss";
+@import "lenis/dist/lenis.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Illoca Palette Tokens */
+  --paper-base: #eadfc9;
+  --paper-sand: #e5d6bc;
+  --paper-ivory: #fdf8f0;
+  --paper-white: #fffbf3;
+  --paper-crisp: #ffffff;
+
+  --blue-primary: #283f7d;
+  --blue-cobalt: #3b60c5;
+  --blue-deep: #1f3568;
+
+  --accent-terracotta: #ec633d;
+  --accent-coral: #e05c3a;
+
+  --ink-primary: #212121;
+  --ink-body: #373737;
+  --ink-muted: #5b5b5b;
+  --ink-annotation: #8b8b8b;
+
+  --border-line: #a19d94;
+  --border-subtle: #d2cbc0;
+  --border-translucent: rgba(161, 157, 148, 0.35);
+
+  --background: var(--paper-ivory);
+  --foreground: var(--ink-primary);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper-base: var(--paper-base);
+  --color-paper-sand: var(--paper-sand);
+  --color-paper-ivory: var(--paper-ivory);
+  --color-paper-white: var(--paper-white);
+  --color-paper-crisp: var(--paper-crisp);
+
+  --color-blue-primary: var(--blue-primary);
+  --color-blue-cobalt: var(--blue-cobalt);
+  --color-blue-deep: var(--blue-deep);
+
+  --color-terracotta: var(--accent-terracotta);
+  --color-coral: var(--accent-coral);
+
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-body: var(--ink-body);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-annotation: var(--ink-annotation);
+
+  --color-border-line: var(--border-line);
+  --color-border-subtle: var(--border-subtle);
+
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: var(--font-display), "Barlow Condensed", "Impact", sans-serif;
+  --font-mono: var(--font-mono), monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #fdf8f0;
+  color: #212121;
+  color-scheme: light;
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: #fdf8f0;
+  color: #212121;
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #283f7d;
+  color: #fffbf3;
+}
+
+/* Lenis smooth scrolling rules */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Typography Utility Classes */
+.font-display {
+  font-family: var(--font-display), "Barlow Condensed", Impact, sans-serif;
+}
+
+.font-mono-code {
+  font-family: var(--font-mono), monospace;
+}
+
+/* Architectural Drafting Grid Pattern (Signature Illoca) */
+.bg-drafting-grid {
+  background-color: #eadfc9;
+  background-image: 
+    linear-gradient(to right, rgba(161, 157, 148, 0.22) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 157, 148, 0.22) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-drafting-grid-subtle {
+  background-image: 
+    linear-gradient(to right, rgba(161, 157, 148, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(161, 157, 148, 0.12) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Marquee continuous scroll animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pulse animation for live status badge */
+@keyframes live-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.6;
+  }
+}
+
+.animate-live-pulse {
+  animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Custom scrollbar for desktop */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf8f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #d2cbc0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a19d94;
 }
